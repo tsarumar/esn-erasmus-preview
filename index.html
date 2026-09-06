@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Plan Your Erasmus+ | ESN Alba Iulia</title>
+
+<!--
+  Development and preview shell only. None of this file is deployed.
+
+  On alba-iulia.esn.ro the satellite_theme already provides Bootstrap, the ESN
+  chrome and the Kelson Sans / Lato / Francois One webfonts; uab_erasmus_module
+  renders the #erasmus-app-root div and attaches the compiled library. Here we
+  reproduce just enough of that context to see the application in place.
+-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="./assets/css/esn-theme-shell.css" />
+<link rel="stylesheet" href="./main.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Francois+One&display=swap" />
+</head>
+
+<body class="node-type--basic-page">
+
+<div class="colorful-strip"></div>
+<a href="#main-content" class="visually-hidden focusable">Skip to main content</a>
+
+<div class="dialog-off-canvas-main-canvas">
+<div class="page">
+
+  <nav class="navbar navbar-expand-lg justify-content-between navbar-light sticky-top bg-light">
+    <div class="container">
+      <div class="block block--sitebranding">
+        <a href="https://alba-iulia.esn.ro/" class="navbar-brand d-flex align-items-center " aria-label="ESN Alba Iulia">
+          <img src="https://alba-iulia.esn.ro/sites/alba-iulia.esn.ro/files/RO-ALBA-ESN.png" height="73px" alt="ESN Alba Iulia logo" class="mr-2" />
+          ESN Alba Iulia
+        </a>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse">
+        <div class="mr-auto ms-auto mb-2 mb-lg-0">
+          <div class="block block--mainnavigation block--system-menu">
+            <ul class="nav navbar-nav">
+              <li class="navbar-text nav-item dropdown">
+                <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">About Us</button>
+                <div class="dropdown-menu">
+                  <a href="https://alba-iulia.esn.ro/alba-iulia" class="dropdown-item">Alba-Iulia</a>
+                  <a href="https://alba-iulia.esn.ro/local-board" class="dropdown-item">Local Team</a>
+                  <a href="https://alba-iulia.esn.ro/esn-romania" class="dropdown-item">ESN Romania</a>
+                  <a href="https://alba-iulia.esn.ro/what-esn" class="dropdown-item">What is ESN?</a>
+                </div>
+              </li>
+              <li class="navbar-text nav-item dropdown">
+                <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Activities</button>
+                <div class="dropdown-menu">
+                  <a href="https://alba-iulia.esn.ro/events" class="dropdown-item">Events</a>
+                  <a href="https://alba-iulia.esn.ro/national-events" class="dropdown-item">National Events</a>
+                  <span class="dropdown-item disabled" aria-disabled="true">News</span>
+                </div>
+              </li>
+              <li class="navbar-text nav-item dropdown">
+                <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">ESNcard</button>
+                <div class="dropdown-menu">
+                  <a href="https://alba-iulia.esn.ro/our-partners" class="dropdown-item">Partners</a>
+                  <a href="https://alba-iulia.esn.ro/esncard-0" class="dropdown-item">What is ESNcard?</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a href="https://alba-iulia.esn.ro/join-erasmus-programme" class="nav-link">Erasmus+</a>
+              </li>
+              <li class="navbar-text nav-item dropdown">
+                <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Get Involved</button>
+                <div class="dropdown-menu">
+                  <a href="https://alba-iulia.esn.ro/buddy-programme" class="dropdown-item">Become A Buddy</a>
+                  <a href="https://alba-iulia.esn.ro/join-us" class="dropdown-item">Become A Volunteer</a>
+                  <a href="https://alba-iulia.esn.ro/departments" class="dropdown-item">Department</a>
+                </div>
+              </li>
+              <li class="navbar-text nav-item dropdown">
+                <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Incoming Students</button>
+                <div class="dropdown-menu">
+                  <a href="https://alba-iulia.esn.ro/survival-guide" class="dropdown-item">Survival Guide</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a href="https://alba-iulia.esn.ro/contact-us" class="nav-link">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="block block--socialmedia">
+          <div id="socialmedia">
+            <ul>
+              <li>
+                <a href="https://www.facebook.com/ESNAlbaIuliaOfficial" title="facebook" class="social-facebook" target="_blank">facebook</a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/esn.alba.iulia/" title="instagram" class="social-instagram" target="_blank">instagram</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="pt-5 pb-5">
+    <a id="main-content" tabindex="-1"></a>
+    <div class="page__content">
+      <div class="container">
+        <article class="node basic-page basic-page--full">
+
+          <!-- This is the only element uab_erasmus_module renders. -->
+          <div id="erasmus-app-root"></div>
+
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <footer class="container pt-2 pt-md-3">
+    <div class="row">
+      <div class="col-md-2">
+        <ul class="list-unstyled text-small">
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="https://alba-iulia.esn.ro/"><img src="https://alba-iulia.esn.ro/sites/alba-iulia.esn.ro/files/RO-ALBA-ESN.png" alt="website logo" width="100%" /></a></li>
+        </ul>
+      </div>
+      <div class="col-md-5">
+        <ul class="list-unstyled text-small">
+          <li class="mb-1"><a class="link-secondary text-decoration-none fw-bold" href="https://alba-iulia.esn.ro/">ESN Alba Iulia</a></li>
+          <li class="mb-1 text-decoration-none footer-color-grey">No.5 Gabriel Bethlen Street<br />510009<br />Alba Iulia<br />Romania</li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="mailto:contact@alba-iulia.esn.ro">contact@alba-iulia.esn.ro</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 d-flex flex-column justify-content-start align-items-md-end">
+        <ul class="list-unstyled text-small">
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="https://www.esn.org/" target="_blank" rel="noopener">ESN International</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="http://www.esn.ro" target="_blank" rel="noopener">ESN Romania</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="https://www.esncard.org" target="_blank" rel="noopener">ESNcard.org</a></li>
+        </ul>
+      </div>
+      <div class="col-md-2 d-flex flex-column justify-content-start align-items-md-end">
+        <ul class="list-unstyled text-small">
+          <li class="mb-1"><a class="link-secondary text-decoration-none fw-bold" href="https://www.facebook.com/ESNAlbaIuliaOfficial" target="_blank" rel="noopener">Facebook</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none fw-bold" href="https://www.instagram.com/esn.alba.iulia/" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- Drupal hands the bundle its own module path this way; the preview mirrors
+     the contract so the source-PDF links resolve here too. -->
+<script>
+  window.drupalSettings = window.drupalSettings || {};
+  window.drupalSettings.uabErasmus = { documentsBase: '/uab_erasmus_module/documents/' };
+</script>
+<script src="./main.js"></script>
+</body>
+</html>
