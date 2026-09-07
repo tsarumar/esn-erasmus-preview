@@ -179,6 +179,19 @@ body {
 /* The brand lockup. The theme sets the height on the img element itself and
    spaces it with Bootstrap's .mr-2, so nothing is overridden here. */
 .navbar.sticky-top { z-index: 1030; }
+.navbar > .container { gap: 16px; }
+.navbar .navbar-brand { gap: 8px; margin-right: 0; }
+.navbar .navbar-nav { align-items: center; }
+.navbar .navbar-text { padding-block: 0; }
+.navbar .nav-link { white-space: nowrap; }
+.navbar .block--socialmedia { margin-left: 16px; flex-shrink: 0; }
+#socialmedia ul { display: flex; align-items: center; gap: 8px; }
+#socialmedia ul li { margin: 0; }
+@media (max-width: 1199.98px) {
+  .navbar .navbar-nav { align-items: stretch; }
+  .navbar .navbar-collapse { padding-block: 16px; }
+  .navbar .block--socialmedia { margin: 16px 0 0; }
+}
 @media screen and (max-width: 768px) {
   footer > div > div:nth-child(1) > ul > li > a > img { max-width: 200px; }
 }
