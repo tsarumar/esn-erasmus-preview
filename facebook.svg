@@ -1,0 +1,11 @@
+<!--
+  Facebook brand mark, official colour #1877F2 on the circle badge.
+
+  Self-hosted rather than hotlinked from alba-iulia.esn.ro: a public preview
+  should not depend on the production site staying reachable, and vector keeps
+  the mark crisp at any size (the live PNG is only 130px).
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Facebook">
+  <circle cx="256" cy="256" r="256" fill="#1877F2"/>
+  <path fill="#FFFFFF" d="M355.6 330l11.4-74h-71v-48.1c0-20.2 9.9-39.9 41.7-39.9H370v-63s-29.3-5-57.3-5c-58.5 0-96.7 35.5-96.7 99.7V256h-65v74h65v178.9c13 2 26.4 3.1 40 3.1s27-1.1 40-3.1V330h59.6z"/>
+</svg>

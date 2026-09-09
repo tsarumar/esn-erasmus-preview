@@ -1,0 +1,36 @@
+<!--
+  Instagram brand mark: the glyph gradient on the rounded-square badge with a
+  white camera outline.
+
+  The sweep runs along the bottom-left -> top-right diagonal through
+  Instagram's own stop colours: #FFDD55 yellow, #FF543F red-orange, then
+  #E64771 / #D53E91 / #CC39A4 into #C837AB at the far corner. Those are the
+  stops from the official glyph, laid on a linear ramp rather than their
+  two-radial construction — the radials need exact userSpaceOnUse geometry to
+  land correctly, and a mis-transcribed centre turns the whole badge muddy.
+  Measured corner-by-corner against the mark the live site serves.
+
+  Self-hosted rather than hotlinked: the live site serves a 1000x1000 PNG of
+  the *outline* variant on a transparent background, which renders as a bare
+  gradient glyph rather than the badge everyone recognises.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Instagram">
+  <defs>
+    <linearGradient id="ig-sweep" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0"    stop-color="#FFDD55"/>
+      <stop offset=".30"  stop-color="#FF543F"/>
+      <stop offset=".55"  stop-color="#E64771"/>
+      <stop offset=".75"  stop-color="#D53E91"/>
+      <stop offset="1"    stop-color="#C837AB"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="48" height="48" rx="13" fill="url(#ig-sweep)"/>
+
+  <!-- camera outline -->
+  <g fill="none" stroke="#FFFFFF" stroke-width="3.2">
+    <rect x="12" y="12" width="24" height="24" rx="7.5"/>
+    <circle cx="24" cy="24" r="6.4"/>
+  </g>
+  <circle cx="32.2" cy="15.8" r="2.1" fill="#FFFFFF"/>
+</svg>

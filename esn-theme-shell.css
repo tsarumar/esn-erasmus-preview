@@ -1,0 +1,207 @@
+/* ==========================================================================
+   ESN Alba Iulia — theme shell (PREVIEW ONLY)
+
+   Reproduces the parts of the live satellite_theme that already exist on
+   alba-iulia.esn.ro: the brand strip, the ESN colour utilities, the social
+   icons and the footer tone. It exists so index.html looks right when opened
+   outside Drupal.
+
+   Do NOT deploy this file to the ESN site — the theme already serves all of
+   it, and a second copy would only risk drifting from the original.
+   ========================================================================== */
+
+:root {
+  --esn-brand-cyan: #00aeef;
+  --esn-brand-magenta: #ed008c;
+  --esn-brand-green: #7ac143;
+  --esn-brand-orange: #f47b20;
+  --esn-brand-dark-blue: #2e3192;
+}
+
+body {
+  font-family: Lato, system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+}
+
+/* The five-colour ESN strip that opens every page. */
+.colorful-strip {
+  height: 10px;
+  width: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    #00aeef, #00aeef 100px,
+    #fff 0, #fff 100px,
+    #ed008c 0, #ed008c 199px,
+    #fff 0, #fff 200px,
+    #7ac143 0, #7ac143 299px,
+    #fff 0, #fff 300px,
+    #f47b20 0, #f47b20 399px,
+    #fff 0, #fff 400px,
+    #2e3192 0, #2e3192 499px,
+    #fff 0, #fff 500px
+  );
+}
+
+.bg-esn-cyan { background-color: #00aeef; }
+.bg-esn-green { background-color: #7ac143; }
+.bg-esn-magenta { background-color: #ed008c; }
+.bg-esn-orange { background-color: #f47b20; }
+.bg-esn-dark-blue { background-color: #2e3192; }
+
+.text-esn-cyan { color: #00aeef; }
+.text-esn-green { color: #7ac143; }
+.text-esn-magenta { color: #ed008c; }
+.text-esn-orange { color: #f47b20; }
+.text-esn-dark-blue { color: #2e3192; }
+
+.footer-color-grey { color: #6c757d; }
+
+/* Social icons: the same 36px circle, 30px background image and
+   rgba(255,255,255,0.2) fill that satellite_social_media uses.
+
+   The marks themselves are local SVGs in assets/img/ rather than the live
+   site's PNGs. Two reasons: a public preview should not break because
+   alba-iulia.esn.ro moved a file or started refusing hotlinks, and the
+   Instagram PNG served there is the transparent *outline* variant, which
+   does not match the badge used everywhere else. The SVGs carry the official
+   brand colours — #1877F2 for Facebook, Instagram's own gradient. */
+#socialmedia ul { padding: 0; margin: 0; }
+#socialmedia ul li {
+  display: inline-block;
+  white-space: nowrap;
+  list-style: none outside none;
+  margin: 0 2px 4px 0;
+}
+#socialmedia ul li:last-child { margin-right: 0; }
+#socialmedia ul li a {
+  display: inline-block;
+  height: 36px;
+  width: 36px;
+  text-indent: -9999px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 30px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 100px;
+}
+#socialmedia ul li a:hover { opacity: 1; }
+.social-facebook {
+  background-image: url(../img/facebook.svg);
+}
+.social-instagram {
+  background-image: url(../img/instagram.svg);
+}
+
+/* Dropdown toggles in the navbar.
+
+   The live theme renders these as <span>, which cannot be focused or reached
+   by keyboard and shows a text cursor, so the menu reads as dead text even
+   though Bootstrap does open it on click. They are <button> here — the markup
+   Bootstrap documents for a toggle — and these rules strip the button chrome
+   so they still look exactly like the neighbouring <a class="nav-link">. */
+.navbar .nav-link.dropdown-toggle {
+  background: none;
+  border: 0;
+  padding-inline: 0.5rem;
+  font: inherit;
+  cursor: pointer;
+}
+.navbar .nav-link.dropdown-toggle:focus-visible {
+  outline: 2px solid var(--esn-dark-blue, #2e3192);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* A dropdown entry with no page behind it should not invite a click. */
+.dropdown-item.disabled,
+.dropdown-item[aria-disabled="true"] {
+  color: #adb5bd;
+  pointer-events: none;
+}
+
+/* Dropdown panels.
+
+   Bootstrap's default is a square-cornered white box that appears instantly.
+   These rules give it the rounded, softly-shadowed surface the rest of the
+   app uses, and drop it in with a short fade-and-rise.
+
+   The animation is a keyframe, not a transition: Bootstrap opens the menu by
+   switching display from none to block, and a transition cannot run on an
+   element that was not rendered a frame earlier. Colours come from the ESN
+   tokens defined in the app stylesheet, with literal fallbacks so this shell
+   still looks right on its own. */
+.navbar .dropdown-menu {
+  --panel-ink: var(--esn-dark-blue, #2e3192);
+  margin-top: 10px;
+  min-width: 12.5rem;
+  padding: 6px;
+  border: 1px solid color-mix(in srgb, var(--panel-ink) 12%, transparent);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow:
+    0 14px 30px -14px color-mix(in srgb, var(--panel-ink) 45%, transparent),
+    0 2px 6px color-mix(in srgb, var(--panel-ink) 8%, transparent);
+}
+
+.navbar .dropdown-menu.show {
+  transform-origin: top center;
+  animation: esn-dropdown-in 170ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+
+@keyframes esn-dropdown-in {
+  from { opacity: 0; transform: translateY(-6px) scale(0.985); }
+  to   { opacity: 1; transform: none; }
+}
+
+.navbar .dropdown-item {
+  border-radius: 9px;
+  padding: 0.5rem 0.7rem;
+  font-weight: 600;
+  color: var(--esn-ink, #142033);
+  transition: background-color 130ms ease, color 130ms ease;
+}
+.navbar .dropdown-item:hover,
+.navbar .dropdown-item:focus-visible {
+  background: color-mix(in srgb, var(--esn-cyan, #00aeef) 14%, transparent);
+  color: var(--panel-ink, #2e3192);
+}
+.navbar .dropdown-item:focus-visible {
+  outline: 2px solid var(--esn-dark-blue, #2e3192);
+  outline-offset: -2px;
+}
+
+/* Someone who asked their system to reduce motion gets the panel with no
+   movement at all — it still appears, it just does not travel. */
+@media (prefers-reduced-motion: reduce) {
+  .navbar .dropdown-menu.show { animation: none; }
+  .navbar .dropdown-item { transition: none; }
+}
+
+/* The brand lockup. The theme sets the height on the img element itself and
+   spaces it with Bootstrap's .mr-2, so nothing is overridden here. */
+.navbar.sticky-top { z-index: 1030; }
+.navbar > .container { gap: 16px; }
+.navbar .navbar-brand { gap: 8px; margin-right: 0; }
+@media (max-width: 360px) {
+  .navbar > .container { gap: 8px; }
+  .navbar .navbar-brand { font-size: 16px; }
+  .navbar .navbar-brand img { width: 98px; height: auto; }
+  .navbar .navbar-toggler { padding: 6px; }
+}
+.navbar .navbar-nav { align-items: center; }
+.navbar .navbar-text { padding-block: 0; }
+.navbar .nav-link { white-space: nowrap; }
+.navbar .block--socialmedia { margin-left: 16px; flex-shrink: 0; }
+#socialmedia ul { display: flex; align-items: center; gap: 8px; }
+#socialmedia ul li { margin: 0; }
+@media (max-width: 1199.98px) {
+  .navbar .navbar-nav { align-items: stretch; }
+  .navbar .navbar-collapse { padding-block: 16px; }
+  .navbar .block--socialmedia { margin: 16px 0 0; }
+}
+@media screen and (max-width: 768px) {
+  footer > div > div:nth-child(1) > ul > li > a > img { max-width: 200px; }
+}
+
+footer.container { padding-bottom: 2rem; }
+footer .link-secondary { color: #6c757d; }
+footer .link-secondary:hover { color: #00aeef; }
