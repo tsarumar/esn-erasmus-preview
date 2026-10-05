@@ -181,6 +181,12 @@ body {
 .navbar.sticky-top { z-index: 1030; }
 .navbar > .container { gap: 16px; }
 .navbar .navbar-brand { gap: 8px; margin-right: 0; }
+@media (max-width: 360px) {
+  .navbar > .container { gap: 8px; }
+  .navbar .navbar-brand { font-size: 16px; }
+  .navbar .navbar-brand img { width: 98px; height: auto; }
+  .navbar .navbar-toggler { padding: 6px; }
+}
 .navbar .navbar-nav { align-items: center; }
 .navbar .navbar-text { padding-block: 0; }
 .navbar .nav-link { white-space: nowrap; }
