@@ -91,25 +91,69 @@ body {
   background-image: url(../img/instagram.svg);
 }
 
-/* Dropdown toggles in the navbar.
-
-   The live theme renders these as <span>, which cannot be focused or reached
-   by keyboard and shows a text cursor, so the menu reads as dead text even
-   though Bootstrap does open it on click. They are <button> here — the markup
-   Bootstrap documents for a toggle — and these rules strip the button chrome
-   so they still look exactly like the neighbouring <a class="nav-link">. */
-.navbar .nav-link.dropdown-toggle {
-  background: none;
+/* Preview header: a quiet white frame, with colour reserved for interaction. */
+.esn-site-nav {
+  --esn-nav-ink: #20264d;
+  z-index: 1030;
+  min-height: 88px;
+  padding-block: 8px;
+  background: #fff !important;
+  border-bottom: 1px solid #e9edf2;
+  box-shadow: 0 6px 22px -19px rgba(32, 38, 77, 0.38);
+}
+.esn-site-nav > .container { gap: 20px; }
+.esn-site-nav .navbar-brand {
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  color: var(--esn-nav-ink);
+  font-family: 'Kelson Sans', Ubuntu, Lato, sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+.esn-site-nav .navbar-brand:hover { color: var(--esn-nav-ink); }
+.esn-site-nav .navbar-brand img { width: 91px; height: auto; }
+.esn-site-nav .navbar-collapse { align-items: center; justify-content: flex-end; }
+.esn-site-nav .block--mainnavigation { margin-left: auto; }
+.esn-site-nav .navbar-nav { align-items: center; gap: 2px; }
+.esn-site-nav .navbar-text { padding: 0; }
+.esn-site-nav .nav-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 8px 10px;
   border: 0;
-  padding-inline: 0.5rem;
-  font: inherit;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--esn-nav-ink);
+  font: 700 13px/1.2 'Kelson Sans', Ubuntu, Lato, sans-serif;
+  white-space: nowrap;
   cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease;
 }
-.navbar .nav-link.dropdown-toggle:focus-visible {
-  outline: 2px solid var(--esn-dark-blue, #2e3192);
+.esn-site-nav .nav-link:hover,
+.esn-site-nav .nav-link:focus-visible,
+.esn-site-nav .esn-nav-open > .nav-link {
+  background: #e6f8fd;
+  color: #006f9d;
+}
+.esn-site-nav .nav-link:focus-visible,
+.esn-site-nav .dropdown-item:focus-visible,
+.esn-site-nav .navbar-toggler:focus-visible,
+.esn-site-nav #socialmedia a:focus-visible {
+  outline: 2px solid var(--esn-brand-cyan);
   outline-offset: 2px;
-  border-radius: 3px;
 }
+.esn-site-nav .dropdown-toggle::after {
+  margin-left: 7px;
+  border-top-width: 4px;
+  border-right-width: 4px;
+  border-left-width: 4px;
+  transition: transform 150ms ease;
+}
+.esn-site-nav .esn-nav-open > .dropdown-toggle::after { transform: rotate(180deg); }
 
 /* A dropdown entry with no page behind it should not invite a click. */
 .dropdown-item.disabled,
@@ -129,22 +173,20 @@ body {
    element that was not rendered a frame earlier. Colours come from the ESN
    tokens defined in the app stylesheet, with literal fallbacks so this shell
    still looks right on its own. */
-.navbar .dropdown-menu {
+.esn-site-nav .dropdown-menu {
   --panel-ink: var(--esn-dark-blue, #2e3192);
-  margin-top: 10px;
-  min-width: 12.5rem;
-  padding: 6px;
-  border: 1px solid color-mix(in srgb, var(--panel-ink) 12%, transparent);
-  border-radius: 14px;
+  margin-top: 0;
+  min-width: 13.5rem;
+  padding: 8px;
+  border: 1px solid #e4edf3;
+  border-radius: 16px;
   background: #fff;
-  box-shadow:
-    0 14px 30px -14px color-mix(in srgb, var(--panel-ink) 45%, transparent),
-    0 2px 6px color-mix(in srgb, var(--panel-ink) 8%, transparent);
+  box-shadow: 0 16px 36px -14px rgba(30, 48, 79, 0.3), 0 2px 7px rgba(30, 48, 79, 0.06);
 }
 
-.navbar .dropdown-menu.show {
+.esn-site-nav .dropdown-menu.show {
   transform-origin: top center;
-  animation: esn-dropdown-in 170ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
+  animation: esn-dropdown-in 150ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
 }
 
 @keyframes esn-dropdown-in {
@@ -152,51 +194,92 @@ body {
   to   { opacity: 1; transform: none; }
 }
 
-.navbar .dropdown-item {
-  border-radius: 9px;
-  padding: 0.5rem 0.7rem;
-  font-weight: 600;
-  color: var(--esn-ink, #142033);
+.esn-site-nav .dropdown-item {
+  border-radius: 10px;
+  padding: 10px 12px;
+  font: 700 13px/1.25 'Kelson Sans', Ubuntu, Lato, sans-serif;
+  color: var(--esn-nav-ink);
   transition: background-color 130ms ease, color 130ms ease;
 }
-.navbar .dropdown-item:hover,
-.navbar .dropdown-item:focus-visible {
-  background: color-mix(in srgb, var(--esn-cyan, #00aeef) 14%, transparent);
-  color: var(--panel-ink, #2e3192);
+.esn-site-nav .dropdown-item:hover,
+.esn-site-nav .dropdown-item:focus-visible {
+  background: #e6f8fd;
+  color: #006f9d;
 }
-.navbar .dropdown-item:focus-visible {
-  outline: 2px solid var(--esn-dark-blue, #2e3192);
-  outline-offset: -2px;
+.esn-site-nav .esn-site-nav__plan {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 4px;
+  background: #ecf8e5;
+  color: #254e1e;
+}
+.esn-site-nav .esn-site-nav__plan:hover,
+.esn-site-nav .esn-site-nav__plan:focus-visible {
+  background: #d9f1cc;
+  color: #193d16;
+}
+.esn-site-nav .esn-site-nav__plan span {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--esn-brand-green);
+  color: #132c10;
+  font: 700 16px/1 Lato, sans-serif;
+  transition: transform 150ms ease;
+}
+.esn-site-nav .esn-site-nav__plan:hover span { transform: translate(2px, -2px); }
+.esn-site-nav .block--socialmedia { margin-left: 9px; flex-shrink: 0; }
+.esn-site-nav #socialmedia ul { display: flex; align-items: center; gap: 5px; }
+.esn-site-nav #socialmedia ul li { margin: 0; }
+.esn-site-nav #socialmedia a { transition: transform 150ms ease; }
+.esn-site-nav #socialmedia a:hover { transform: translateY(-2px); }
+.esn-site-nav .navbar-toggler { border-color: #dbe5eb; border-radius: 10px; }
+.esn-site-nav .navbar-toggler:hover { background: #e6f8fd; }
+.esn-site-nav .navbar-toggler-icon { width: 1.25em; height: 1.25em; }
+
+@media (max-width: 1399.98px) and (min-width: 1200px) {
+  .esn-site-nav > .container { gap: 10px; }
+  .esn-site-nav .navbar-brand { font-size: 15px; }
+  .esn-site-nav .navbar-brand img { width: 80px; }
+  .esn-site-nav .nav-link { padding-inline: 7px; font-size: 12px; }
+  .esn-site-nav .block--socialmedia { margin-left: 4px; }
 }
 
 /* Someone who asked their system to reduce motion gets the panel with no
    movement at all — it still appears, it just does not travel. */
 @media (prefers-reduced-motion: reduce) {
-  .navbar .dropdown-menu.show { animation: none; }
-  .navbar .dropdown-item { transition: none; }
+  .esn-site-nav .dropdown-menu.show { animation: none; }
+  .esn-site-nav .dropdown-item,
+  .esn-site-nav .nav-link,
+  .esn-site-nav .esn-site-nav__plan span,
+  .esn-site-nav #socialmedia a { transition: none; }
 }
 
-/* The brand lockup. The theme sets the height on the img element itself and
-   spaces it with Bootstrap's .mr-2, so nothing is overridden here. */
-.navbar.sticky-top { z-index: 1030; }
-.navbar > .container { gap: 16px; }
-.navbar .navbar-brand { gap: 8px; margin-right: 0; }
-@media (max-width: 360px) {
-  .navbar > .container { gap: 8px; }
-  .navbar .navbar-brand { font-size: 16px; }
-  .navbar .navbar-brand img { width: 98px; height: auto; }
-  .navbar .navbar-toggler { padding: 6px; }
-}
-.navbar .navbar-nav { align-items: center; }
-.navbar .navbar-text { padding-block: 0; }
-.navbar .nav-link { white-space: nowrap; }
-.navbar .block--socialmedia { margin-left: 16px; flex-shrink: 0; }
-#socialmedia ul { display: flex; align-items: center; gap: 8px; }
-#socialmedia ul li { margin: 0; }
 @media (max-width: 1199.98px) {
-  .navbar .navbar-nav { align-items: stretch; }
-  .navbar .navbar-collapse { padding-block: 16px; }
-  .navbar .block--socialmedia { margin: 16px 0 0; }
+  .esn-site-nav { min-height: 76px; }
+  .esn-site-nav .navbar-collapse {
+    width: 100%;
+    max-height: min(72vh, 600px);
+    overflow-y: auto;
+    padding: 12px 0 4px;
+    border-top: 1px solid #edf1f5;
+    margin-top: 10px;
+  }
+  .esn-site-nav .navbar-nav { align-items: stretch; gap: 2px; }
+  .esn-site-nav .nav-link { display: flex; width: 100%; justify-content: space-between; min-height: 44px; font-size: 14px; }
+  .esn-site-nav .dropdown-menu { position: static; width: 100%; margin: 2px 0 7px; box-shadow: none; border-radius: 12px; background: #fbfdfe; }
+  .esn-site-nav .block--socialmedia { margin: 12px 0 0; padding: 12px 8px 0; border-top: 1px solid #edf1f5; }
+}
+@media (max-width: 360px) {
+  .esn-site-nav > .container { gap: 8px; }
+  .esn-site-nav .navbar-brand { font-size: 15px; }
+  .esn-site-nav .navbar-brand img { width: 74px; }
+  .esn-site-nav .navbar-toggler { padding: 6px; }
 }
 @media screen and (max-width: 768px) {
   footer > div > div:nth-child(1) > ul > li > a > img { max-width: 200px; }
