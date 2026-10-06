@@ -6,7 +6,7 @@
   const collapse = nav.querySelector('.navbar-collapse');
   const menuButton = nav.querySelector('.navbar-toggler');
   const dropdowns = [...nav.querySelectorAll('.nav-item.dropdown')];
-  const canHover = matchMedia('(min-width: 1200px) and (hover: hover)');
+  const canHover = matchMedia('(min-width: 1400px) and (hover: hover)');
 
   const setOpen = (item, open) => {
     item.querySelector('.dropdown-toggle').setAttribute('aria-expanded', String(open));
@@ -66,7 +66,7 @@
   });
 
   window.addEventListener('resize', () => {
-    if (window.innerWidth >= 1200 && collapse.classList.contains('show')) {
+    if (window.innerWidth >= 1400 && collapse.classList.contains('show')) {
       collapse.classList.remove('show');
       menuButton.setAttribute('aria-expanded', 'false');
       menuButton.setAttribute('aria-label', 'Toggle navigation');
