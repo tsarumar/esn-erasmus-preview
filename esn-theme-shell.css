@@ -55,7 +55,7 @@ body {
 
 .footer-color-grey { color: #6c757d; }
 
-/* Satellite shows social links as text beside the menu. */
+/* Locally bundled social marks, with accessible names on their links. */
 #socialmedia ul { padding: 0; margin: 0; }
 #socialmedia ul li {
   display: block;
@@ -64,19 +64,18 @@ body {
   margin: 0;
 }
 #socialmedia ul li a {
-  display: block;
-  min-height: 40px;
-  padding: 8px 16.5px;
-  border-radius: 10px;
-  color: #0d6efd;
-  font: 400 16px/24px Nunito, Lato, sans-serif;
-  text-decoration: none;
-  transition: background-color 150ms ease, color 150ms ease;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: background-color 150ms ease, transform 150ms ease;
 }
 #socialmedia ul li a:hover {
   background: #e6f8fd;
-  color: #006f9d;
+  transform: translateY(-2px);
 }
+#socialmedia ul li img { display: block; width: 32px; height: 32px; }
 
 /* Preview header: a quiet white frame, with colour reserved for interaction. */
 .esn-site-nav {
@@ -220,8 +219,8 @@ body {
   transition: transform 150ms ease;
 }
 .esn-site-nav .esn-site-nav__plan:hover span { transform: translate(2px, -2px); }
-.esn-site-nav .block--socialmedia { margin-left: 0; flex-shrink: 0; }
-.esn-site-nav #socialmedia ul { display: flex; align-items: center; gap: 0; }
+.esn-site-nav .block--socialmedia { width: 206px; margin-left: 0; flex-shrink: 0; }
+.esn-site-nav #socialmedia ul { display: flex; align-items: center; justify-content: center; gap: 8px; }
 .esn-site-nav #socialmedia ul li { margin: 0; }
 .esn-site-nav .navbar-toggler { border-color: #dbe5eb; border-radius: 10px; }
 .esn-site-nav .navbar-toggler:hover { background: #e6f8fd; }
@@ -250,7 +249,8 @@ body {
   .esn-site-nav .navbar-nav { align-items: stretch; gap: 2px; }
   .esn-site-nav .nav-link { display: flex; width: 100%; justify-content: space-between; min-height: 44px; font-size: 16px; }
   .esn-site-nav .dropdown-menu { position: static; width: 100%; margin: 2px 0 7px; box-shadow: none; border-radius: 12px; background: #fbfdfe; }
-  .esn-site-nav .block--socialmedia { margin: 12px 0 0; padding: 12px 8px 0; border-top: 1px solid #edf1f5; }
+  .esn-site-nav .block--socialmedia { width: auto; margin: 12px 0 0; padding: 12px 8px 0; border-top: 1px solid #edf1f5; }
+  .esn-site-nav #socialmedia ul { justify-content: flex-start; }
 }
 @media (max-width: 575.98px) {
   .esn-site-nav .navbar-brand { font-size: 18px; }
